@@ -22,4 +22,4 @@ Copyright gfycat.com
 
 Всё должно собираться через Webpack (включая картинки и стили) и выкладываться на Github Pages через CI.
 
-[![NodeJS with Webpack](https://github.com/danroman-github/ahj-dom/actions/workflows/webpack.yml/badge.svg)](https://github.com/danroman-github/ahj-dom/actions/workflows/webpack.yml)
+[![NodeJS with Webpack](https://github.com/danroman-github/ahj-events/actions/workflows/webpack.yml/badge.svg)](https://github.com/danroman-github/ahj-events/actions/workflows/webpack.yml)
