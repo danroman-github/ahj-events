@@ -100,7 +100,7 @@ export default function App() {
         }
 
         // Проверяем условия окончания игры (5 последовательных промахов)
-        if (scoreManager.getConsecutiveMisses() >= MAX_CONSECUTIVE_MISSES) {
+        if (scoreManager.getMissesGoblins() >= MAX_CONSECUTIVE_MISSES) {
             updateScoreDisplay();
             endGame();
             return;
@@ -147,6 +147,7 @@ export default function App() {
 
     function updateScoreDisplay() {
         const score = scoreManager.getScore();
+        const misses = scoreManager.getMisses();
         const consecutiveMisses = scoreManager.getConsecutiveMisses();
 
         let scoreDisplay = document.querySelector('.score-display');
@@ -159,7 +160,8 @@ export default function App() {
         }
 
         scoreDisplay.innerHTML = `
-            <div>Попадания: ${score} / Промахи: ${consecutiveMisses}</div>
+            <div>Попадания: ${score} / Промахи: ${misses}</div>
+            <div> Пропущено гоблинов подряд: ${consecutiveMisses}</div>
         `;
     }
 

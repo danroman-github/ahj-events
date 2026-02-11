@@ -5,6 +5,8 @@ export class CellClickHandler {
         this.board = board;
         this.goblinImg = goblinImg;
         this.score = 0;
+        this.misses = 0;
+        this.missedGoblins = 0;
         this.consecutiveMisses = 0;
         this.lastHitWasSuccessful = false;
         this.clicksEnabled = false;
@@ -69,9 +71,12 @@ export class CellClickHandler {
 
         if (hitGoblin) {
             this.score++;
+            this.missedGoblins = 0;
             this.consecutiveMisses = 0;
             this._showHitEffect(cell);
         } else {
+            this.misses++;
+            this.missedGoblins++;
             this.consecutiveMisses++;
             this._showMissEffect(cell);
         }
@@ -124,6 +129,14 @@ export class CellClickHandler {
         return this.score;
     }
 
+    getMisses() {
+        return this.misses;
+    }
+
+    getMissesGoblins() {
+        return this.missedGoblins;
+    }
+
     getConsecutiveMisses() {
         return this.consecutiveMisses;
     }
@@ -131,6 +144,7 @@ export class CellClickHandler {
     resetScores() {
         this.score = 0;
         this.misses = 0;
+        this.missedGoblins = 0;
         this.consecutiveMisses = 0;
         this.lastHitWasSuccessful = false;
         this.clicksEnabled = false;
@@ -138,6 +152,7 @@ export class CellClickHandler {
 
     addMiss() {
         this.misses++;
+        this.missedGoblins++;
         this.consecutiveMisses++;
         this.lastHitWasSuccessful = false;
     }
